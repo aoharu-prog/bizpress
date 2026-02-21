@@ -1,0 +1,2472 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BizPress — 加圧トレーニング専門ジム</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   BizPress Design System
+   ============================================================ */
+
+/* 1. Variables */
+:root {
+  --color-bg-primary:      #F7F5F0;
+  --color-bg-secondary:    #EFECE5;
+  --color-bg-dark:         #1A1A1A;
+  --color-bg-dark-subtle:  #222220;
+  --color-text-primary:    #1A1A1A;
+  --color-text-secondary:  #4A4A47;
+  --color-text-muted:      #8A8A84;
+  --color-text-inverse:    #F7F5F0;
+  --color-text-inverse-sub:#B8B4A8;
+  --color-accent:          #B8924A;
+  --color-accent-light:    #D4AE6E;
+  --color-accent-dark:     #8C6D35;
+  --color-accent-subtle:   #F0E8D8;
+  --color-border:          #D8D4CC;
+  --color-border-strong:   #B0AC9F;
+  --color-border-dark:     #333330;
+  --color-success:         #4A7C59;
+  --color-overlay-light:   rgba(247,245,240,0.92);
+  --color-overlay-dark:    rgba(26,26,26,0.88);
+
+  --font-display-en: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-ui-en:      'DM Sans', 'Helvetica Neue', sans-serif;
+  --font-heading-ja: 'Noto Serif JP', '游明朝', serif;
+  --font-body-ja:    'Noto Sans JP', '游ゴシック', sans-serif;
+
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+
+  --ls-display:       0.06em;
+  --ls-heading-ja:    0.08em;
+  --ls-body-ja:       0.05em;
+  --ls-ui:            0.04em;
+  --ls-caption:       0.10em;
+  --ls-tracking-wide: 0.15em;
+
+  --fs-display-xl:  clamp(3.5rem,  2.2rem + 5.5vw, 7.5rem);
+  --fs-display-lg:  clamp(2.75rem, 1.8rem + 4.0vw, 5.5rem);
+  --fs-display-md:  clamp(2.0rem,  1.4rem + 2.8vw, 4.0rem);
+  --fs-h1:          clamp(1.75rem, 1.2rem + 2.4vw, 3.25rem);
+  --fs-h2:          clamp(1.5rem,  1.1rem + 1.8vw, 2.625rem);
+  --fs-h3:          clamp(1.25rem, 0.95rem + 1.3vw, 2.0rem);
+  --fs-h4:          clamp(1.125rem,0.9rem + 1.0vw, 1.625rem);
+  --fs-h5:          clamp(1.0rem,  0.85rem + 0.7vw, 1.375rem);
+  --fs-body-lg:     clamp(1.0rem,  0.9rem + 0.4vw, 1.25rem);
+  --fs-body:        clamp(0.9375rem,0.875rem+0.3vw,1.0625rem);
+  --fs-body-sm:     clamp(0.875rem, 0.84rem + 0.2vw, 1.0rem);
+  --fs-label:       clamp(0.75rem,  0.72rem + 0.1vw, 0.875rem);
+  --fs-caption:     0.75rem;
+  --fs-overline:    0.6875rem;
+  --fs-btn-lg:      clamp(0.9375rem, 0.9rem + 0.2vw, 1.125rem);
+  --fs-btn:         clamp(0.875rem,  0.85rem + 0.1vw, 1.0rem);
+
+  --lh-display:    1.05;
+  --lh-heading-ja: 1.6;
+  --lh-heading-en: 1.2;
+  --lh-body-ja:    1.9;
+  --lh-body-en:    1.65;
+  --lh-ui:         1.4;
+  --lh-caption:    1.55;
+
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 40px; --space-8: 48px;
+  --space-9: 64px; --space-10: 80px; --space-11: 96px; --space-12: 128px;
+
+  --section-padding-y:    clamp(4rem, 3rem + 4.0vw, 7.5rem);
+  --section-padding-y-sm: clamp(2.5rem,2rem + 2.0vw, 5.0rem);
+  --section-padding-y-lg: clamp(5rem, 4rem + 5.0vw,10.0rem);
+  --container-padding-x:  clamp(1.25rem,1rem + 2.0vw, 2.5rem);
+  --container-max:        1200px;
+  --container-narrow:      800px;
+  --container-wide:        1400px;
+  --card-padding:          clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+  --btn-padding-y:         0.875rem;
+  --btn-padding-x:         2.0rem;
+  --btn-padding-y-lg:      1.125rem;
+  --btn-padding-x-lg:      2.75rem;
+
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-lg:   8px;
+  --radius-pill: 100px;
+  --radius-circle: 50%;
+
+  --shadow-xs:  0 1px  3px rgba(26,26,26,0.06);
+  --shadow-sm:  0 2px  8px rgba(26,26,26,0.08), 0 1px 3px rgba(26,26,26,0.05);
+  --shadow-md:  0 4px 16px rgba(26,26,26,0.10), 0 2px 6px rgba(26,26,26,0.06);
+  --shadow-lg:  0 8px 32px rgba(26,26,26,0.12), 0 4px 12px rgba(26,26,26,0.07);
+  --shadow-xl:  0 16px 48px rgba(26,26,26,0.14), 0 6px 20px rgba(26,26,26,0.08);
+  --shadow-accent: 0 4px 20px rgba(184,146,74,0.30);
+  --shadow-accent-lg: 0 8px 32px rgba(184,146,74,0.40);
+
+  --ease-standard: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out:      cubic-bezier(0.215, 0.61, 0.355, 1.0);
+  --ease-elegant:  cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast:   150ms;
+  --duration-base:   250ms;
+  --duration-slow:   400ms;
+  --duration-slower: 700ms;
+  --transition-base:  var(--duration-base) var(--ease-standard);
+  --transition-slow:  var(--duration-slow) var(--ease-elegant);
+  --transition-hover: var(--duration-base) var(--ease-out);
+
+  --border-thin:   1px solid var(--color-border);
+  --border-accent: 1px solid var(--color-accent);
+  --border-dark:   1px solid var(--color-border-dark);
+}
+
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-body-ja);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body-ja);
+  letter-spacing: var(--ls-body-ja);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img, video { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+.container--narrow { max-width: var(--container-narrow); }
+.container--wide   { max-width: var(--container-wide); }
+
+.section           { padding-block: var(--section-padding-y); }
+.section--sm       { padding-block: var(--section-padding-y-sm); }
+.section--lg       { padding-block: var(--section-padding-y-lg); }
+.section--dark     { background-color: var(--color-bg-dark); color: var(--color-text-inverse); }
+.section--tinted   { background-color: var(--color-bg-secondary); }
+.section--accent-subtle { background-color: var(--color-accent-subtle); }
+
+.text-overline {
+  font-family: var(--font-ui-en);
+  font-size: var(--fs-overline);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.section--dark .text-overline { color: var(--color-accent-light); }
+
+.text-caption {
+  font-family: var(--font-body-ja);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-caption);
+  letter-spacing: var(--ls-caption);
+  color: var(--color-text-muted);
+}
+
+.text-lead {
+  font-family: var(--font-body-ja);
+  font-size: var(--fs-body-lg);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-body-ja);
+  letter-spacing: var(--ls-body-ja);
+  color: var(--color-text-secondary);
+}
+
+.section--dark .text-lead { color: var(--color-text-inverse-sub); }
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin-block: var(--space-8);
+}
+.divider--accent {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-accent) 30%, var(--color-accent) 70%, transparent 100%);
+  width: 80px;
+  margin-inline: auto;
+  margin-block: var(--space-5);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-family: var(--font-body-ja);
+  font-size: var(--fs-btn);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-ui);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn--primary {
+  background-color: var(--color-accent);
+  color: #fff;
+  box-shadow: var(--shadow-accent);
+}
+.btn--primary:hover {
+  background-color: var(--color-accent-light);
+  box-shadow: var(--shadow-accent-lg);
+  transform: translateY(-1px);
+}
+.btn--primary:active {
+  background-color: var(--color-accent-dark);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(0);
+}
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: var(--border-thin);
+}
+.btn--secondary:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.btn--outline-inverse {
+  background-color: transparent;
+  color: var(--color-text-inverse);
+  border: 1px solid var(--color-text-inverse-sub);
+}
+.btn--outline-inverse:hover { border-color: var(--color-accent-light); color: var(--color-accent-light); }
+.btn--lg {
+  padding: var(--btn-padding-y-lg) var(--btn-padding-x-lg);
+  font-size: var(--fs-btn-lg);
+}
+
+/* Cards */
+.card {
+  background: var(--color-bg-primary);
+  border: var(--border-thin);
+  border-radius: var(--radius-md);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-hover), transform var(--transition-hover);
+}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.card--dark { background: var(--color-bg-dark-subtle); border: var(--border-dark); color: var(--color-text-inverse); }
+.card--accent { border-top: 3px solid var(--color-accent); }
+
+/* Input */
+.input {
+  width: 100%;
+  padding: 0.75rem 1.0rem;
+  font-family: var(--font-body-ja);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--ls-body-ja);
+  color: var(--color-text-primary);
+  background: #fff;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+.input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(184,146,74,0.12);
+}
+.input::placeholder { color: var(--color-text-muted); letter-spacing: var(--ls-body-ja); }
+
+/* ============================================================
+   Scroll Animation
+   ============================================================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease-elegant), transform 0.7s var(--ease-elegant);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-delay-1 { transition-delay: 0.1s; }
+.fade-in-delay-2 { transition-delay: 0.2s; }
+.fade-in-delay-3 { transition-delay: 0.3s; }
+.fade-in-delay-4 { transition-delay: 0.4s; }
+
+/* ============================================================
+   Image Placeholder System
+   ============================================================ */
+.img-placeholder {
+  background: linear-gradient(135deg, #2a2a28 0%, #3a3835 50%, #2a2a28 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 30px,
+    rgba(184,146,74,0.03) 30px,
+    rgba(184,146,74,0.03) 31px
+  );
+}
+.img-placeholder__label {
+  font-family: var(--font-ui-en);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tracking-wide);
+  text-transform: uppercase;
+  color: rgba(184,146,74,0.5);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+  border: 1px dashed rgba(184,146,74,0.2);
+  border-radius: var(--radius-md);
+}
+.img-placeholder--light {
+  background: linear-gradient(135deg, #E8E5DE 0%, #DDD9D0 50%, #E8E5DE 100%);
+}
+.img-placeholder--light .img-placeholder__label {
+  color: rgba(184,146,74,0.6);
+}
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  padding-block: 1.25rem;
+  transition: background-color 0.4s var(--ease-standard), box-shadow 0.4s var(--ease-standard);
+}
+.nav.scrolled {
+  background-color: rgba(26,26,26,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+.nav__logo {
+  font-family: var(--font-display-en);
+  font-size: 1.5rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  color: var(--color-text-inverse);
+  text-transform: uppercase;
+}
+.nav__logo span { color: var(--color-accent); }
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-7);
+  list-style: none;
+}
+.nav__links a {
+  font-family: var(--font-ui-en);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-inverse-sub);
+  transition: color var(--transition-base);
+}
+.nav__links a:hover { color: var(--color-accent-light); }
+.nav__cta { font-size: var(--fs-label) !important; padding: 0.625rem 1.25rem !important; }
+
+@media (max-width: 767px) {
+  .nav__links { display: none; }
+}
+
+/* ============================================================
+   Hero Section
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  background-color: var(--color-bg-dark);
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Background grid texture */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(184,146,74,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184,146,74,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Right image area */
+.hero__bg-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 52%;
+}
+.hero__bg-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--color-bg-dark) 0%, rgba(26,26,26,0.3) 40%, transparent 70%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding-block: 10rem 6rem;
+}
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+.hero__eyebrow-line {
+  width: 32px;
+  height: 1px;
+  background-color: var(--color-accent);
+}
+.hero__display {
+  font-family: var(--font-display-en);
+  font-size: var(--fs-display-xl);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-5);
+}
+.hero__display em {
+  font-style: italic;
+  color: var(--color-accent-light);
+}
+.hero__headline {
+  font-family: var(--font-heading-ja);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-heading-ja);
+  letter-spacing: var(--ls-heading-ja);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-7);
+  max-width: 480px;
+}
+.hero__headline strong {
+  font-weight: var(--fw-medium);
+  color: var(--color-accent-light);
+}
+.hero__desc {
+  font-family: var(--font-body-ja);
+  font-size: var(--fs-body-lg);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-body-ja);
+  letter-spacing: var(--ls-body-ja);
+  color: var(--color-text-inverse-sub);
+  max-width: 420px;
+  margin-bottom: var(--space-8);
+}
+.hero__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-11);
+}
+.hero__stats {
+  display: flex;
+  gap: var(--space-8);
+  border-top: 1px solid var(--color-border-dark);
+  padding-top: var(--space-6);
+}
+.hero__stat-num {
+  font-family: var(--font-display-en);
+  font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.75rem);
+  font-weight: var(--fw-light);
+  letter-spacing: 0.02em;
+  color: var(--color-text-inverse);
+  line-height: 1;
+}
+.hero__stat-num span { font-size: 0.55em; color: var(--color-accent); margin-left: 2px; }
+.hero__stat-label {
+  font-family: var(--font-body-ja);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-caption);
+  color: var(--color-text-inverse-sub);
+  margin-top: 4px;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  z-index: 2;
+}
+.hero__scroll-text {
+  font-family: var(--font-ui-en);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-inverse-sub);
+}
+.hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+  animation: scrollLine 1.8s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.5); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+@media (max-width: 767px) {
+  .hero__bg-image { width: 100%; opacity: 0.2; }
+  .hero__stats { gap: var(--space-6); flex-wrap: wrap; }
+}
+
+/* ============================================================
+   Section Headers
+   ============================================================ */
+.section-header {
+  margin-bottom: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+.section-header--center { text-align: center; }
+.section-header__title {
+  font-family: var(--font-heading-ja);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-heading-ja);
+  letter-spacing: var(--ls-heading-ja);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+.section-header__lead { max-width: 540px; }
+.section-header--center .section-header__lead {
+  margin-inline: auto;
+}
+.section-header__en {
+  font-family: var(--font-display-en);
+  font-size: var(--fs-display-md);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-display);
+  line-height: 1;
+  color: rgba(184,146,74,0.15);
+  display: block;
+  margin-bottom: -0.5em;
+}
+
+/* ============================================================
+   About: 加圧トレーニングとは
+   ============================================================ */
+.about {
+  background-color: var(--color-bg-primary);
+}
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 2rem + 4vw, 6rem);
+  align-items: center;
+}
+.about__image-wrap {
+  position: relative;
+}
+.about__image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-lg);
+}
+.about__image-badge {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  background-color: var(--color-bg-dark);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-xl);
+}
+.about__image-badge-num {
+  font-family: var(--font-display-en);
+  font-size: 2.5rem;
+  font-weight: var(--fw-light);
+  color: var(--color-accent);
+  line-height: 1;
+}
+.about__image-badge-text {
+  font-family: var(--font-body-ja);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-caption);
+  color: var(--color-text-inverse-sub);
+  margin-top: 4px;
+}
+.about__points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-top: var(--space-7);
+}
+.about__point {
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+}
+.about__point-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-accent-subtle);
+  border: 1px solid rgba(184,146,74,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-display-en);
+  font-size: 1rem;
+  font-weight: var(--fw-semibold);
+  color: var(--color-accent);
+  line-height: 1;
+}
+.about__point-title {
+  font-family: var(--font-heading-ja);
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-heading-ja);
+  margin-bottom: var(--space-2);
+}
+.about__point-text {
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-body-ja);
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 767px) {
+  .about__grid { grid-template-columns: 1fr; }
+  .about__image-badge { bottom: -1rem; right: 0.5rem; }
+}
+
+/* ============================================================
+   Science: 科学的根拠
+   ============================================================ */
+.science {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+  position: relative;
+  overflow: hidden;
+}
+.science::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 80vw;
+  height: 80vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,146,74,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.science__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+.science__card {
+  background: var(--color-bg-dark-subtle);
+  border: var(--border-dark);
+  border-radius: var(--radius-md);
+  padding: var(--card-padding);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition-hover), transform var(--transition-hover);
+}
+.science__card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent-dark), var(--color-accent-light));
+  opacity: 0;
+  transition: opacity var(--transition-hover);
+}
+.science__card:hover { border-color: rgba(184,146,74,0.3); transform: translateY(-2px); }
+.science__card:hover::before { opacity: 1; }
+.science__card-num {
+  font-family: var(--font-display-en);
+  font-size: clamp(2.5rem, 2rem + 2vw, 4rem);
+  font-weight: var(--fw-light);
+  letter-spacing: 0.02em;
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: var(--space-3);
+}
+.science__card-num sup {
+  font-size: 0.45em;
+  color: var(--color-accent-light);
+  vertical-align: top;
+  margin-top: 0.3em;
+}
+.science__card-title {
+  font-family: var(--font-heading-ja);
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-heading-ja);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-3);
+}
+.science__card-text {
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-body-ja);
+  color: var(--color-text-inverse-sub);
+}
+
+@media (max-width: 767px) {
+  .science__grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .science__grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ============================================================
+   Results: ビフォーアフター・実績
+   ============================================================ */
+.results {
+  background-color: var(--color-bg-secondary);
+}
+.results__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+.result-card {
+  background: var(--color-bg-primary);
+  border: var(--border-thin);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-hover), transform var(--transition-hover);
+}
+.result-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.result-card__images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.result-card__img {
+  aspect-ratio: 3/4;
+}
+.result-card__divider-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-dark);
+  grid-column: span 2;
+  padding: 0.25rem;
+  gap: var(--space-4);
+}
+.result-card__divider-label span {
+  font-family: var(--font-ui-en);
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: var(--fw-medium);
+}
+.result-card__divider-label::before,
+.result-card__divider-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(184,146,74,0.2);
+}
+.result-card__body { padding: 1.25rem 1.5rem 1.5rem; }
+.result-card__tag {
+  display: inline-block;
+  font-family: var(--font-ui-en);
+  font-size: 0.625rem;
+  letter-spacing: var(--ls-tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-3);
+}
+.result-card__name {
+  font-family: var(--font-heading-ja);
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-heading-ja);
+  margin-bottom: var(--space-3);
+}
+.result-card__metrics {
+  display: flex;
+  gap: var(--space-5);
+  margin-bottom: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-3);
+}
+.result-card__metric-num {
+  font-family: var(--font-display-en);
+  font-size: 1.375rem;
+  font-weight: var(--fw-light);
+  color: var(--color-accent);
+  line-height: 1;
+}
+.result-card__metric-label {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-light);
+  color: var(--color-text-muted);
+  letter-spacing: var(--ls-caption);
+  margin-top: 2px;
+}
+.result-card__comment {
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-body-ja);
+  color: var(--color-text-secondary);
+  border-left: 2px solid var(--color-accent-light);
+  padding-left: var(--space-3);
+}
+
+@media (max-width: 767px) {
+  .results__grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .results__grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ============================================================
+   Plans: 料金プラン
+   ============================================================ */
+.plans {
+  background: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+  position: relative;
+  overflow: hidden;
+}
+.plans__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+  align-items: start;
+}
+.plan-card {
+  background: var(--color-bg-dark-subtle);
+  border: var(--border-dark);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  transition: border-color var(--transition-hover), transform var(--transition-hover);
+  position: relative;
+}
+.plan-card:hover { border-color: rgba(184,146,74,0.3); transform: translateY(-3px); }
+.plan-card--featured {
+  border-color: var(--color-accent);
+  background: #1e1d1a;
+}
+.plan-card--featured::before {
+  content: 'MOST POPULAR';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-accent);
+  color: #fff;
+  font-family: var(--font-ui-en);
+  font-size: 0.5625rem;
+  letter-spacing: 0.2em;
+  font-weight: var(--fw-medium);
+  padding: 4px 14px;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+.plan-card__label {
+  font-family: var(--font-ui-en);
+  font-size: var(--fs-overline);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  margin-bottom: var(--space-3);
+}
+.plan-card__name {
+  font-family: var(--font-heading-ja);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-heading-ja);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-5);
+}
+.plan-card__price {
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border-dark);
+}
+.plan-card__price-num {
+  font-family: var(--font-display-en);
+  font-size: clamp(2rem, 1.6rem + 1.8vw, 3rem);
+  font-weight: var(--fw-light);
+  color: var(--color-text-inverse);
+  line-height: 1;
+}
+.plan-card__price-currency {
+  font-size: 0.5em;
+  color: var(--color-text-inverse-sub);
+  vertical-align: super;
+  margin-right: 2px;
+}
+.plan-card__price-period {
+  font-family: var(--font-body-ja);
+  font-size: var(--fs-caption);
+  color: var(--color-text-inverse-sub);
+  margin-left: 4px;
+}
+.plan-card__price-note {
+  font-size: var(--fs-caption);
+  color: var(--color-text-inverse-sub);
+  margin-top: var(--space-2);
+}
+.plan-card__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+.plan-card__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-light);
+  color: var(--color-text-inverse-sub);
+  line-height: var(--lh-body-ja);
+}
+.plan-card__feature::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' stroke='%23B8924A' stroke-width='1' fill='none'/%3E%3Cpath d='M5 8l2.5 2.5L11 5.5' stroke='%23B8924A' stroke-width='1.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 2px;
+}
+.plan-card--featured .plan-card__feature::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' stroke='%23D4AE6E' stroke-width='1' fill='%23D4AE6E' fill-opacity='0.1'/%3E%3Cpath d='M5 8l2.5 2.5L11 5.5' stroke='%23D4AE6E' stroke-width='1.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.plan-card .btn { width: 100%; justify-content: center; }
+
+@media (max-width: 767px) {
+  .plans__grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .plans__grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ============================================================
+   Staff
+   ============================================================ */
+.staff {
+  background: var(--color-bg-primary);
+}
+.staff__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+  margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+.staff-card {
+  text-align: center;
+}
+.staff-card__photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-5);
+  overflow: hidden;
+}
+.staff-card__role {
+  font-family: var(--font-ui-en);
+  font-size: var(--fs-overline);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+}
+.staff-card__name-en {
+  font-family: var(--font-display-en);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-display);
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  margin-bottom: var(--space-1);
+}
+.staff-card__name-ja {
+  font-family: var(--font-heading-ja);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-heading-ja);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+.staff-card__bio {
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-body-ja);
+  color: var(--color-text-secondary);
+  text-align: left;
+}
+.staff-card__certs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+.staff-card__cert {
+  font-family: var(--font-ui-en);
+  font-size: 0.5625rem;
+  letter-spacing: 0.1em;
+  font-weight: var(--fw-medium);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .staff__grid { grid-template-columns: 1fr; max-width: 340px; margin-inline: auto; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .staff__grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ============================================================
+   Facility
+   ============================================================ */
+.facility {
+  background: var(--color-bg-secondary);
+}
+.facility__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+}
+.facility__img-main {
+  grid-row: span 2;
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.facility__img-sub {
+  aspect-ratio: 16/10;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .facility__grid { grid-template-columns: 1fr; }
+  .facility__img-main { grid-row: auto; aspect-ratio: 4/3; }
+}
+
+/* ============================================================
+   FAQ Accordion
+   ============================================================ */
+.faq {
+  background: var(--color-bg-primary);
+}
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+  border-top: 1px solid var(--color-border);
+}
+.faq__item {
+  border-bottom: 1px solid var(--color-border);
+}
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  width: 100%;
+  padding: 1.5rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+.faq__question-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+.faq__question-label {
+  font-family: var(--font-display-en);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-accent);
+  letter-spacing: 0.06em;
+  line-height: 1.8;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.faq__question-text {
+  font-family: var(--font-heading-ja);
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-heading-ja);
+  letter-spacing: var(--ls-heading-ja);
+  color: var(--color-text-primary);
+  transition: color var(--transition-base);
+}
+.faq__question:hover .faq__question-text {
+  color: var(--color-accent-dark);
+}
+.faq__icon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-circle);
+  border: 1px solid var(--color-border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color var(--transition-base), border-color var(--transition-base), transform var(--transition-slow);
+}
+.faq__icon::before,
+.faq__icon::after {
+  content: '';
+  position: absolute;
+  background: var(--color-accent);
+  border-radius: 1px;
+  transition: transform var(--transition-slow), opacity var(--transition-base);
+}
+.faq__icon { position: relative; }
+.faq__icon::before {
+  width: 12px;
+  height: 1.5px;
+}
+.faq__icon::after {
+  width: 1.5px;
+  height: 12px;
+}
+.faq__item.is-open .faq__icon {
+  background-color: var(--color-accent-subtle);
+  border-color: var(--color-accent);
+  transform: rotate(45deg);
+}
+.faq__answer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.45s var(--ease-elegant), opacity 0.35s var(--ease-standard);
+  opacity: 0;
+}
+.faq__item.is-open .faq__answer {
+  opacity: 1;
+}
+.faq__answer-inner {
+  display: flex;
+  gap: var(--space-5);
+  padding-bottom: 1.75rem;
+}
+.faq__answer-label {
+  font-family: var(--font-display-en);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-muted);
+  letter-spacing: 0.06em;
+  line-height: 1.8;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.faq__answer-text {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-body-ja);
+  letter-spacing: var(--ls-body-ja);
+  color: var(--color-text-secondary);
+}
+
+/* ============================================================
+   Access
+   ============================================================ */
+.access {
+  background: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+}
+.access__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 2rem + 4vw, 6rem);
+  align-items: start;
+}
+.access__info dt {
+  font-family: var(--font-ui-en);
+  font-size: var(--fs-overline);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  margin-bottom: var(--space-1);
+  margin-top: var(--space-5);
+}
+.access__info dt:first-child { margin-top: 0; }
+.access__info dd {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-body-ja);
+  color: var(--color-text-inverse-sub);
+}
+.access__map {
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: var(--border-dark);
+}
+
+@media (max-width: 767px) {
+  .access__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   CTA Section
+   ============================================================ */
+.cta-section {
+  background: var(--color-bg-dark);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding-block: clamp(5rem, 4rem + 5vw, 10rem);
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(184,146,74,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-section__inner {
+  position: relative;
+  z-index: 1;
+}
+.cta-section__display {
+  font-family: var(--font-display-en);
+  font-size: var(--fs-display-lg);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-4);
+}
+.cta-section__display em { font-style: italic; color: var(--color-accent-light); }
+.cta-section__subtitle {
+  font-family: var(--font-heading-ja);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--ls-heading-ja);
+  color: var(--color-text-inverse-sub);
+  margin-bottom: var(--space-7);
+}
+.cta-section__form {
+  display: flex;
+  gap: var(--space-3);
+  max-width: 480px;
+  margin-inline: auto;
+  margin-bottom: var(--space-5);
+}
+.cta-section__form .input {
+  background: rgba(255,255,255,0.06);
+  border-color: var(--color-border-dark);
+  color: var(--color-text-inverse);
+}
+.cta-section__form .input:focus {
+  border-color: var(--color-accent);
+  background: rgba(255,255,255,0.08);
+}
+.cta-section__form .input::placeholder { color: rgba(184,180,168,0.5); }
+.cta-section__note {
+  font-size: var(--fs-caption);
+  color: var(--color-text-inverse-sub);
+}
+
+@media (max-width: 599px) {
+  .cta-section__form { flex-direction: column; }
+  .cta-section__form .btn { width: 100%; }
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  background: #111110;
+  color: var(--color-text-inverse-sub);
+  padding-block: var(--space-11) var(--space-7);
+}
+.footer__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  margin-bottom: var(--space-10);
+}
+.footer__brand-logo {
+  font-family: var(--font-display-en);
+  font-size: 1.75rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.12em;
+  color: var(--color-text-inverse);
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+.footer__brand-logo span { color: var(--color-accent); }
+.footer__brand-desc {
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-body-ja);
+  color: var(--color-text-inverse-sub);
+  max-width: 240px;
+}
+.footer__col-title {
+  font-family: var(--font-ui-en);
+  font-size: var(--fs-overline);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-5);
+}
+.footer__links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.footer__links a {
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-light);
+  color: var(--color-text-inverse-sub);
+  transition: color var(--transition-base);
+}
+.footer__links a:hover { color: var(--color-accent-light); }
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-7);
+  border-top: 1px solid var(--color-border-dark);
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.footer__copy {
+  font-family: var(--font-ui-en);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.05em;
+  color: rgba(184,180,168,0.4);
+}
+.footer__policy {
+  display: flex;
+  gap: var(--space-5);
+}
+.footer__policy a {
+  font-size: var(--fs-caption);
+  color: rgba(184,180,168,0.4);
+  transition: color var(--transition-base);
+}
+.footer__policy a:hover { color: var(--color-accent-light); }
+
+@media (max-width: 767px) {
+  .footer__inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .footer__inner { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   Testimonials
+   ============================================================ */
+.testimonials { background: var(--color-bg-primary); }
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+.testimonial-card {
+  background: var(--color-bg-primary);
+  border: var(--border-thin);
+  border-radius: var(--radius-md);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+.testimonial-card__quote-mark {
+  font-family: var(--font-display-en);
+  font-size: 4rem;
+  font-weight: var(--fw-semibold);
+  color: var(--color-accent);
+  line-height: 0.8;
+  margin-bottom: var(--space-4);
+  opacity: 0.4;
+}
+.testimonial-card__text {
+  font-family: var(--font-heading-ja);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-body-ja);
+  letter-spacing: var(--ls-body-ja);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-5);
+}
+.testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  border-top: var(--border-thin);
+  padding-top: var(--space-4);
+}
+.testimonial-card__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-circle);
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+  flex-shrink: 0;
+}
+.testimonial-card__author-name {
+  font-family: var(--font-heading-ja);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-heading-ja);
+}
+.testimonial-card__author-detail {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-light);
+  color: var(--color-text-muted);
+  letter-spacing: var(--ls-caption);
+  margin-top: 2px;
+}
+.testimonial-card__stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: var(--space-3);
+}
+.testimonial-card__star {
+  width: 12px;
+  height: 12px;
+  background: var(--color-accent);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+@media (max-width: 767px) {
+  .testimonials__grid { grid-template-columns: 1fr; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .testimonials__grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ============================================================
+   Trial Banner
+   ============================================================ */
+.trial-banner {
+  background: linear-gradient(135deg, var(--color-accent-dark) 0%, var(--color-accent) 100%);
+  padding-block: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+.trial-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+.trial-banner__text {}
+.trial-banner__label {
+  font-family: var(--font-ui-en);
+  font-size: var(--fs-overline);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tracking-wide);
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: var(--space-2);
+}
+.trial-banner__title {
+  font-family: var(--font-heading-ja);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-heading-ja);
+  color: #fff;
+}
+.trial-banner .btn--outline-inverse {
+  border-color: rgba(255,255,255,0.6);
+  color: #fff;
+  font-size: var(--fs-btn-lg);
+  padding: var(--btn-padding-y-lg) var(--btn-padding-x-lg);
+}
+.trial-banner .btn--outline-inverse:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: #fff;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     Navigation
+     ============================================================ -->
+<nav class="nav" id="mainNav">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">Biz<span>Press</span></a>
+      <ul class="nav__links">
+        <li><a href="#about">加圧とは</a></li>
+        <li><a href="#results">実績</a></li>
+        <li><a href="#plans">プラン</a></li>
+        <li><a href="#staff">スタッフ</a></li>
+        <li><a href="#access">アクセス</a></li>
+      </ul>
+      <a href="#cta" class="btn btn--primary nav__cta">無料体験を予約</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     Hero
+     ============================================================ -->
+<section class="hero" id="hero">
+  <!-- Background Image Placeholder -->
+  <div class="hero__bg-image img-placeholder">
+    <div class="img-placeholder__label">Hero Main Image<br>トレーニング風景（縦長・高解像度）<br>推奨: 1200×1600px</div>
+  </div>
+
+  <div class="container">
+    <div class="hero__content">
+
+      <div class="hero__eyebrow fade-in">
+        <div class="hero__eyebrow-line"></div>
+        <span class="text-overline">Medical Kaatsu Training Gym</span>
+      </div>
+
+      <h1>
+        <div class="hero__display fade-in fade-in-delay-1">
+          Re<em>shape</em><br>Your Time.
+        </div>
+        <div class="hero__headline fade-in fade-in-delay-2">
+          週<strong>2回・20分</strong>で<br>10年分の身体を取り戻す。
+        </div>
+      </h1>
+
+      <p class="hero__desc fade-in fade-in-delay-3">
+        加圧トレーニングは、通常の筋力トレーニングの<strong style="color:var(--color-accent-light);font-weight:500;">4倍の成長ホルモン</strong>を分泌。忙しいビジネスパーソンのために、医学的根拠に基づいた最短ルートを設計します。
+      </p>
+
+      <div class="hero__actions fade-in fade-in-delay-4">
+        <a href="#cta" class="btn btn--primary btn--lg">無料体験セッションを予約する</a>
+        <a href="#about" class="btn btn--outline-inverse">加圧とは何か →</a>
+      </div>
+
+      <div class="hero__stats fade-in fade-in-delay-4">
+        <div>
+          <div class="hero__stat-num">2,800<span>+</span></div>
+          <div class="hero__stat-label">累計会員数</div>
+        </div>
+        <div>
+          <div class="hero__stat-num">96<span>%</span></div>
+          <div class="hero__stat-label">3ヶ月継続率</div>
+        </div>
+        <div>
+          <div class="hero__stat-num">12<span>年</span></div>
+          <div class="hero__stat-label">専門実績</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="hero__scroll">
+    <span class="hero__scroll-text">Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     Trial Banner
+     ============================================================ -->
+<div class="trial-banner">
+  <div class="container">
+    <div class="trial-banner__inner">
+      <div class="trial-banner__text">
+        <div class="trial-banner__label">Limited Offer</div>
+        <div class="trial-banner__title">今なら初回体験セッション 完全無料 ── 定員残り3名</div>
+      </div>
+      <a href="#cta" class="btn btn--outline-inverse">今すぐ予約する →</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     About: 加圧トレーニングとは
+     ============================================================ -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="about__grid">
+
+      <div class="fade-in">
+        <div class="about__image-wrap">
+          <div class="about__image img-placeholder">
+            <div class="img-placeholder__label" style="max-width:240px;">About Section Image<br>専用器具装着シーン<br>推奨: 800×1000px</div>
+          </div>
+          <div class="about__image-badge">
+            <div class="about__image-badge-num">4×</div>
+            <div class="about__image-badge-text">成長ホルモン分泌量<br>通常比較</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in fade-in-delay-1">
+        <div class="section-header">
+          <span class="text-overline">What is Kaatsu</span>
+          <span class="section-header__en">Science</span>
+          <h2 class="section-header__title">加圧トレーニングとは</h2>
+          <p class="text-lead section-header__lead">
+            専用ベルトで血流を適切に制限しながら行う、医学的根拠を持つトレーニング法。軽い負荷でも高強度に匹敵する筋肉への刺激を与えられます。
+          </p>
+        </div>
+
+        <ul class="about__points">
+          <li class="about__point">
+            <div class="about__point-icon">01</div>
+            <div>
+              <div class="about__point-title">血流制限で乳酸を蓄積</div>
+              <p class="about__point-text">専用ベルトで静脈の血流のみを制限。低酸素環境を人工的に作り出し、筋肉内に乳酸が蓄積。これが成長ホルモン分泌の強力なトリガーになります。</p>
+            </div>
+          </li>
+          <li class="about__point">
+            <div class="about__point-icon">02</div>
+            <div>
+              <div class="about__point-title">低負荷・高効率なトレーニング</div>
+              <p class="about__point-text">通常の10〜30%の負荷で高強度トレーニングと同等の筋肥大効果が得られます。関節への負担が少なく、40代以降や運動習慣のない方にも最適です。</p>
+            </div>
+          </li>
+          <li class="about__point">
+            <div class="about__point-icon">03</div>
+            <div>
+              <div class="about__point-title">20分という圧倒的な時短性</div>
+              <p class="about__point-text">1セッションわずか20分。週2回から始められ、忙しいビジネスパーソンのスケジュールに完全フィットします。</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     Science: データ・数字で語る
+     ============================================================ -->
+<section class="science section--lg" id="science">
+  <div class="container">
+
+    <div class="section-header section-header--center fade-in">
+      <span class="text-overline">Clinical Evidence</span>
+      <span class="section-header__en">Numbers</span>
+      <h2 class="section-header__title" style="color:var(--color-text-inverse);">科学が証明する、数字の力</h2>
+      <p class="text-lead section-header__lead" style="color:var(--color-text-inverse-sub);">
+        東京大学・筑波大学との共同研究データをはじめ、12年の施術実績から導き出された結果をご覧ください。
+      </p>
+    </div>
+
+    <div class="science__grid">
+      <div class="science__card fade-in">
+        <div class="science__card-num">4<sup>倍</sup></div>
+        <div class="science__card-title">成長ホルモンの分泌量</div>
+        <p class="science__card-text">加圧トレーニング後に計測される成長ホルモン濃度は、通常の高強度トレーニングの最大4倍。脂肪燃焼・筋肉合成を同時に促進します。</p>
+      </div>
+      <div class="science__card fade-in fade-in-delay-1">
+        <div class="science__card-num">20<sup>分</sup></div>
+        <div class="science__card-title">1セッションの所要時間</div>
+        <p class="science__card-text">着替え・ウォームアップを含めてもわずか20分。昼休みや出勤前後に無理なく組み込めます。月8回で十分な効果が得られます。</p>
+      </div>
+      <div class="science__card fade-in fade-in-delay-2">
+        <div class="science__card-num">89<sup>%</sup></div>
+        <div class="science__card-title">3ヶ月で体型変化を実感</div>
+        <p class="science__card-text">当ジム会員の89%が、開始から3ヶ月以内に体重・体脂肪・筋肉量のいずれかで有意な変化を報告。</p>
+      </div>
+      <div class="science__card fade-in">
+        <div class="science__card-num">1/3</div>
+        <div class="science__card-title">関節への負担</div>
+        <p class="science__card-text">同等効果の通常トレーニングと比較して関節負荷は約1/3。ひざ・腰・肩の既往症がある方でも安心してご利用いただけます。</p>
+      </div>
+      <div class="science__card fade-in fade-in-delay-1">
+        <div class="science__card-num">+12<sup>%</sup></div>
+        <div class="science__card-title">基礎代謝の向上</div>
+        <p class="science__card-text">筋肉量増加に伴い、安静時の基礎代謝が平均12%向上。太りにくい体質への根本的なアプローチです。</p>
+      </div>
+      <div class="science__card fade-in fade-in-delay-2">
+        <div class="science__card-num">96<sup>%</sup></div>
+        <div class="science__card-title">3ヶ月継続率</div>
+        <p class="science__card-text">短時間・低負荷・確実な結果の三拍子が、継続のモチベーションを維持。業界平均を大きく上回る継続率を誇ります。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     Results: ビフォーアフター
+     ============================================================ -->
+<section class="results section" id="results">
+  <div class="container">
+
+    <div class="section-header fade-in">
+      <span class="text-overline">Transformation</span>
+      <span class="section-header__en">Results</span>
+      <h2 class="section-header__title">実際の変化をご覧ください</h2>
+      <p class="text-lead section-header__lead">
+        すべて実際の会員様の成果です。個人差はありますが、多くの方が3ヶ月以内に目に見える変化を実感しています。
+      </p>
+    </div>
+
+    <div class="results__grid">
+
+      <!-- Result Card 1 -->
+      <div class="result-card fade-in">
+        <div class="result-card__images">
+          <div class="result-card__img img-placeholder">
+            <div class="img-placeholder__label" style="font-size:9px;">Before<br>300×400px</div>
+          </div>
+          <div class="result-card__img img-placeholder">
+            <div class="img-placeholder__label" style="font-size:9px;">After<br>300×400px</div>
+          </div>
+          <div class="result-card__divider-label">
+            <span>Before / After</span>
+          </div>
+        </div>
+        <div class="result-card__body">
+          <span class="result-card__tag">3ヶ月プログラム</span>
+          <div class="result-card__name">T.Mさん / 44歳・会社役員</div>
+          <div class="result-card__metrics">
+            <div>
+              <div class="result-card__metric-num">−8.2kg</div>
+              <div class="result-card__metric-label">体重変化</div>
+            </div>
+            <div>
+              <div class="result-card__metric-num">−5.1%</div>
+              <div class="result-card__metric-label">体脂肪率</div>
+            </div>
+          </div>
+          <p class="result-card__comment">「週2回の昼休みトレーニングだけで、若い頃の体型が戻った感覚です」</p>
+        </div>
+      </div>
+
+      <!-- Result Card 2 -->
+      <div class="result-card fade-in fade-in-delay-1">
+        <div class="result-card__images">
+          <div class="result-card__img img-placeholder">
+            <div class="img-placeholder__label" style="font-size:9px;">Before<br>300×400px</div>
+          </div>
+          <div class="result-card__img img-placeholder">
+            <div class="img-placeholder__label" style="font-size:9px;">After<br>300×400px</div>
+          </div>
+          <div class="result-card__divider-label">
+            <span>Before / After</span>
+          </div>
+        </div>
+        <div class="result-card__body">
+          <span class="result-card__tag">6ヶ月プログラム</span>
+          <div class="result-card__name">K.Sさん / 38歳・外資系勤務</div>
+          <div class="result-card__metrics">
+            <div>
+              <div class="result-card__metric-num">+3.8kg</div>
+              <div class="result-card__metric-label">筋肉量</div>
+            </div>
+            <div>
+              <div class="result-card__metric-num">−4.3%</div>
+              <div class="result-card__metric-label">体脂肪率</div>
+            </div>
+          </div>
+          <p class="result-card__comment">「海外出張が多くても通えました。肩こりも完全になくなりました」</p>
+        </div>
+      </div>
+
+      <!-- Result Card 3 -->
+      <div class="result-card fade-in fade-in-delay-2">
+        <div class="result-card__images">
+          <div class="result-card__img img-placeholder">
+            <div class="img-placeholder__label" style="font-size:9px;">Before<br>300×400px</div>
+          </div>
+          <div class="result-card__img img-placeholder">
+            <div class="img-placeholder__label" style="font-size:9px;">After<br>300×400px</div>
+          </div>
+          <div class="result-card__divider-label">
+            <span>Before / After</span>
+          </div>
+        </div>
+        <div class="result-card__body">
+          <span class="result-card__tag">3ヶ月プログラム</span>
+          <div class="result-card__name">Y.Nさん / 51歳・医師</div>
+          <div class="result-card__metrics">
+            <div>
+              <div class="result-card__metric-num">−6.5kg</div>
+              <div class="result-card__metric-label">体重変化</div>
+            </div>
+            <div>
+              <div class="result-card__metric-num">−3.8%</div>
+              <div class="result-card__metric-label">体脂肪率</div>
+            </div>
+          </div>
+          <p class="result-card__comment">「膝の古傷があって諦めていましたが、加圧なら問題なくできました」</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     Testimonials
+     ============================================================ -->
+<section class="testimonials section--sm" id="testimonials">
+  <div class="container">
+
+    <div class="section-header section-header--center fade-in">
+      <span class="text-overline">Member Voice</span>
+      <h2 class="section-header__title">会員様の声</h2>
+    </div>
+
+    <div class="testimonials__grid">
+
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-card__stars">
+          <div class="testimonial-card__star"></div><div class="testimonial-card__star"></div>
+          <div class="testimonial-card__star"></div><div class="testimonial-card__star"></div>
+          <div class="testimonial-card__star"></div>
+        </div>
+        <div class="testimonial-card__quote-mark">"</div>
+        <p class="testimonial-card__text">出張が多く、普通のジムは通えていませんでした。週2回のランチタイムに通えるBizPressは、私のライフスタイルに完璧にフィットしています。</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar img-placeholder">
+            <div class="img-placeholder__label" style="font-size:8px;padding:4px;border:none;">42px</div>
+          </div>
+          <div>
+            <div class="testimonial-card__author-name">H.Iさん</div>
+            <div class="testimonial-card__author-detail">46歳 · コンサルタント · 会員歴8ヶ月</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in fade-in-delay-1">
+        <div class="testimonial-card__stars">
+          <div class="testimonial-card__star"></div><div class="testimonial-card__star"></div>
+          <div class="testimonial-card__star"></div><div class="testimonial-card__star"></div>
+          <div class="testimonial-card__star"></div>
+        </div>
+        <div class="testimonial-card__quote-mark">"</div>
+        <p class="testimonial-card__text">50代で代謝が落ちていましたが、3ヶ月で基礎代謝が明らかに上がり、食事制限なしで体重が減り始めました。科学的な裏付けがあることも安心感につながっています。</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar img-placeholder">
+            <div class="img-placeholder__label" style="font-size:8px;padding:4px;border:none;">42px</div>
+          </div>
+          <div>
+            <div class="testimonial-card__author-name">R.Mさん</div>
+            <div class="testimonial-card__author-detail">52歳 · 経営者 · 会員歴1年2ヶ月</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in fade-in-delay-2">
+        <div class="testimonial-card__stars">
+          <div class="testimonial-card__star"></div><div class="testimonial-card__star"></div>
+          <div class="testimonial-card__star"></div><div class="testimonial-card__star"></div>
+          <div class="testimonial-card__star"></div>
+        </div>
+        <div class="testimonial-card__quote-mark">"</div>
+        <p class="testimonial-card__text">最初は「週2回20分で本当に変わるの？」と疑っていましたが、2ヶ月目にスーツのサイズが落ちて確信しました。トレーナーの質も非常に高いです。</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar img-placeholder">
+            <div class="img-placeholder__label" style="font-size:8px;padding:4px;border:none;">42px</div>
+          </div>
+          <div>
+            <div class="testimonial-card__author-name">S.Kさん</div>
+            <div class="testimonial-card__author-detail">39歳 · IT企業役員 · 会員歴5ヶ月</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     Plans: 料金プラン
+     ============================================================ -->
+<section class="plans section" id="plans">
+  <div class="container">
+
+    <div class="section-header section-header--center fade-in">
+      <span class="text-overline" style="color:var(--color-accent-light);">Membership Plan</span>
+      <span class="section-header__en">Invest</span>
+      <h2 class="section-header__title" style="color:var(--color-text-inverse);">あなたのライフスタイルに合わせた3プラン</h2>
+      <p class="text-lead section-header__lead">
+        すべてのプランに初回ボディ診断・トレーニング指導・進捗管理が含まれます。
+      </p>
+    </div>
+
+    <div class="plans__grid">
+
+      <div class="plan-card fade-in">
+        <div class="plan-card__label">Standard</div>
+        <div class="plan-card__name">スタンダードプラン<br><small style="font-size:0.65em;font-weight:300;color:var(--color-text-inverse-sub);">月8回コース</small></div>
+        <div class="plan-card__price">
+          <div class="plan-card__price-num"><span class="plan-card__price-currency">¥</span>22,000<small class="plan-card__price-period">/ 月</small></div>
+          <div class="plan-card__price-note">入会金 ¥16,500（初回のみ）</div>
+        </div>
+        <ul class="plan-card__features">
+          <li class="plan-card__feature">専属トレーナーによる個別指導（毎回）</li>
+          <li class="plan-card__feature">初回ボディスキャン診断</li>
+          <li class="plan-card__feature">月次進捗レポート</li>
+          <li class="plan-card__feature">トレーニングウェア貸し出し</li>
+          <li class="plan-card__feature">シャワー・アメニティ完備</li>
+        </ul>
+        <a href="#cta" class="btn btn--outline-inverse">このプランを選ぶ</a>
+      </div>
+
+      <div class="plan-card plan-card--featured fade-in fade-in-delay-1">
+        <div class="plan-card__label">Premium</div>
+        <div class="plan-card__name">プレミアムプラン<br><small style="font-size:0.65em;font-weight:300;color:var(--color-text-inverse-sub);">月16回コース</small></div>
+        <div class="plan-card__price">
+          <div class="plan-card__price-num"><span class="plan-card__price-currency">¥</span>38,000<small class="plan-card__price-period">/ 月</small></div>
+          <div class="plan-card__price-note">入会金 ¥16,500（初回のみ）</div>
+        </div>
+        <ul class="plan-card__features">
+          <li class="plan-card__feature">専属トレーナーによる個別指導（毎回）</li>
+          <li class="plan-card__feature">初回ボディスキャン診断</li>
+          <li class="plan-card__feature">週次進捗レポート</li>
+          <li class="plan-card__feature">栄養カウンセリング月1回</li>
+          <li class="plan-card__feature">トレーニングウェア貸し出し</li>
+          <li class="plan-card__feature">シャワー・アメニティ完備</li>
+          <li class="plan-card__feature">優先予約枠の確保</li>
+        </ul>
+        <a href="#cta" class="btn btn--primary">このプランを選ぶ</a>
+      </div>
+
+      <div class="plan-card fade-in fade-in-delay-2">
+        <div class="plan-card__label">Executive</div>
+        <div class="plan-card__name">エグゼクティブプラン<br><small style="font-size:0.65em;font-weight:300;color:var(--color-text-inverse-sub);">完全カスタムコース</small></div>
+        <div class="plan-card__price">
+          <div class="plan-card__price-num" style="font-size:1.5rem;color:var(--color-accent-light);">お問い合わせ</div>
+          <div class="plan-card__price-note">法人契約・複数名割引あり</div>
+        </div>
+        <ul class="plan-card__features">
+          <li class="plan-card__feature">担当トレーナー固定制</li>
+          <li class="plan-card__feature">完全プライベートスペース</li>
+          <li class="plan-card__feature">医師・管理栄養士との連携</li>
+          <li class="plan-card__feature">毎月詳細検査レポート</li>
+          <li class="plan-card__feature">出張・自宅訪問トレーニング</li>
+          <li class="plan-card__feature">法人向け福利厚生プログラム</li>
+        </ul>
+        <a href="#cta" class="btn btn--outline-inverse">詳細を問い合わせる</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     Staff
+     ============================================================ -->
+<section class="staff section" id="staff">
+  <div class="container">
+
+    <div class="section-header section-header--center fade-in">
+      <span class="text-overline">Our Trainers</span>
+      <span class="section-header__en">Experts</span>
+      <h2 class="section-header__title">あなたの専属トレーナー</h2>
+      <p class="text-lead section-header__lead">
+        医学・スポーツ科学のバックグラウンドを持つ、加圧トレーニング認定指導者のみが在籍しています。
+      </p>
+    </div>
+
+    <div class="staff__grid">
+
+      <div class="staff-card fade-in">
+        <div class="staff-card__photo img-placeholder">
+          <div class="img-placeholder__label">Staff Photo 1<br>トレーナー写真<br>推奨: 600×800px</div>
+        </div>
+        <div class="staff-card__role">Head Trainer</div>
+        <div class="staff-card__name-en">Kenji Yamamoto</div>
+        <div class="staff-card__name-ja">山本 健司</div>
+        <p class="staff-card__bio">早稲田大学スポーツ科学部卒。日本加圧トレーニング学会認定指導者として12年間で3,000セッション以上の指導実績。専門は中高年ビジネスパーソンの体型改善と腰痛・膝痛ケア。</p>
+        <div class="staff-card__certs">
+          <span class="staff-card__cert">加圧トレーニング指導士</span>
+          <span class="staff-card__cert">健康運動指導士</span>
+          <span class="staff-card__cert">NSCA-CSCS</span>
+        </div>
+      </div>
+
+      <div class="staff-card fade-in fade-in-delay-1">
+        <div class="staff-card__photo img-placeholder">
+          <div class="img-placeholder__label">Staff Photo 2<br>トレーナー写真<br>推奨: 600×800px</div>
+        </div>
+        <div class="staff-card__role">Senior Trainer</div>
+        <div class="staff-card__name-en">Mika Tanaka</div>
+        <div class="staff-card__name-ja">田中 美香</div>
+        <p class="staff-card__bio">東京体育大学卒。女性の体型改善とホルモンバランスに特化した加圧トレーニングを専門とし、産後リハビリや更年期ケアでも高い評価を受ける。著書2冊。</p>
+        <div class="staff-card__certs">
+          <span class="staff-card__cert">加圧トレーニング指導士</span>
+          <span class="staff-card__cert">管理栄養士</span>
+          <span class="staff-card__cert">産後ケア専門士</span>
+        </div>
+      </div>
+
+      <div class="staff-card fade-in fade-in-delay-2">
+        <div class="staff-card__photo img-placeholder">
+          <div class="img-placeholder__label">Staff Photo 3<br>トレーナー写真<br>推奨: 600×800px</div>
+        </div>
+        <div class="staff-card__role">Medical Advisor</div>
+        <div class="staff-card__name-en">Dr. Hiroshi Kato</div>
+        <div class="staff-card__name-ja">加藤 浩 医師</div>
+        <p class="staff-card__bio">慶應義塾大学医学部卒。スポーツ整形外科専門医として、安全な加圧トレーニングの普及に尽力。糖尿病・高血圧など生活習慣病の改善プログラムも監修。</p>
+        <div class="staff-card__certs">
+          <span class="staff-card__cert">整形外科専門医</span>
+          <span class="staff-card__cert">スポーツ医学</span>
+          <span class="staff-card__cert">医学博士</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     Facility
+     ============================================================ -->
+<section class="facility section" id="facility">
+  <div class="container">
+
+    <div class="section-header fade-in">
+      <span class="text-overline">Our Space</span>
+      <span class="section-header__en">Facility</span>
+      <h2 class="section-header__title">プライベートな空間で、集中できる環境を</h2>
+      <p class="text-lead section-header__lead">
+        完全個室・完全予約制。スーツ姿のままお越しいただけます。着替え不要のご来店も可能です。
+      </p>
+    </div>
+
+    <div class="facility__grid fade-in fade-in-delay-1">
+      <div class="facility__img-main img-placeholder">
+        <div class="img-placeholder__label">Facility Main Image<br>トレーニングルーム全景<br>推奨: 800×1000px</div>
+      </div>
+      <div class="facility__img-sub img-placeholder">
+        <div class="img-placeholder__label">Facility Sub Image 1<br>受付・ラウンジエリア<br>推奨: 800×500px</div>
+      </div>
+      <div class="facility__img-sub img-placeholder">
+        <div class="img-placeholder__label">Facility Sub Image 2<br>シャワールーム<br>推奨: 800×500px</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="faq section" id="faq">
+  <div class="container container--narrow">
+
+    <div class="section-header section-header--center fade-in">
+      <span class="text-overline">FAQ</span>
+      <span class="section-header__en">Questions</span>
+      <h2 class="section-header__title">よくあるご質問</h2>
+      <p class="text-lead section-header__lead">
+        ご入会前のご不安を解消します。他にご質問がございましたらお気軽にお問い合わせください。
+      </p>
+    </div>
+
+    <div class="faq__list fade-in fade-in-delay-1">
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <div class="faq__question-inner">
+            <span class="faq__question-label">Q</span>
+            <span class="faq__question-text">加圧トレーニングは危険ではないですか？</span>
+          </div>
+          <div class="faq__icon" aria-hidden="true"></div>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <span class="faq__answer-label">A</span>
+            <p class="faq__answer-text">適切な資格を持つ指導者が専用器具を用いて行う限り、安全性は医学的に確認されています。当ジムでは初回に必ず問診・体力測定を実施し、お一人おひとりの状態に合わせた圧力設定を行います。東京大学・筑波大学との共同研究でも安全性が実証されており、ご安心ください。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <div class="faq__question-inner">
+            <span class="faq__question-label">Q</span>
+            <span class="faq__question-text">運動経験がなくても大丈夫ですか？</span>
+          </div>
+          <div class="faq__icon" aria-hidden="true"></div>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <span class="faq__answer-label">A</span>
+            <p class="faq__answer-text">むしろ運動習慣のない方こそ大きな効果を実感いただけます。加圧トレーニングは通常の10〜30%という軽い負荷から始められるため、運動初心者や体力に自信のない方でも安心してスタートできます。専属トレーナーが毎回マンツーマンでサポートします。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <div class="faq__question-inner">
+            <span class="faq__question-label">Q</span>
+            <span class="faq__question-text">どのくらいで効果が実感できますか？</span>
+          </div>
+          <div class="faq__icon" aria-hidden="true"></div>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <span class="faq__answer-label">A</span>
+            <p class="faq__answer-text">個人差はありますが、多くの会員様が1〜2ヶ月で「体が引き締まった」「疲れにくくなった」という変化を実感されています。体重・体脂肪・筋肉量の数値変化は3ヶ月が目安です。当ジム会員の89%が3ヶ月以内にいずれかの指標で有意な変化を記録しています。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <div class="faq__question-inner">
+            <span class="faq__question-label">Q</span>
+            <span class="faq__question-text">高血圧・糖尿病などの持病があっても受けられますか？</span>
+          </div>
+          <div class="faq__icon" aria-hidden="true"></div>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <span class="faq__answer-label">A</span>
+            <p class="faq__answer-text">高血圧・糖尿病・肥満などの生活習慣病は、むしろ改善が期待できるケースが多く、当ジムでも多数の実績があります。ただし、一部の重篤な状態（重症の心疾患・血栓症など）は禁忌となります。初回カウンセリングで担当医アドバイザーがご状態を確認し、安全に参加できるかを判断します。かかりつけ医の診断書をお持ちいただくとよりスムーズです。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <div class="faq__question-inner">
+            <span class="faq__question-label">Q</span>
+            <span class="faq__question-text">無料体験後に勧誘はありますか？</span>
+          </div>
+          <div class="faq__icon" aria-hidden="true"></div>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <span class="faq__answer-label">A</span>
+            <p class="faq__answer-text">しつこい勧誘は一切行いません。体験終了後、ご希望の場合のみプランのご案内をします。その場での即決をお願いすることもありませんので、ゆっくりご検討いただけます。まずは効果を体感していただくことが私たちの目的です。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <div class="faq__question-inner">
+            <span class="faq__question-label">Q</span>
+            <span class="faq__question-text">予約はどのように取りますか？キャンセルは可能ですか？</span>
+          </div>
+          <div class="faq__icon" aria-hidden="true"></div>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <span class="faq__answer-label">A</span>
+            <p class="faq__answer-text">予約は専用アプリ・電話・メールのいずれかでお取りいただけます。キャンセルはセッション24時間前まで無料です。当日キャンセル・無断キャンセルの場合は1回消費となりますのでご注意ください。急なご予定変更の場合はお早めにご連絡ください。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">
+          <div class="faq__question-inner">
+            <span class="faq__question-label">Q</span>
+            <span class="faq__question-text">スーツのまま来店できますか？着替えは必要ですか？</span>
+          </div>
+          <div class="faq__icon" aria-hidden="true"></div>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <span class="faq__answer-label">A</span>
+            <p class="faq__answer-text">スーツのままご来店いただけます。加圧トレーニングは着替えなしでも実施可能です。ご希望の方にはトレーニングウェア（全プラン無料貸し出し）をご用意しています。シャワーも完備していますので、トレーニング後そのまま職場にお戻りいただけます。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     Access
+     ============================================================ -->
+<section class="access section" id="access">
+  <div class="container">
+
+    <div class="section-header fade-in">
+      <span class="text-overline" style="color:var(--color-accent-light);">Access</span>
+      <h2 class="section-header__title" style="color:var(--color-text-inverse);">アクセス</h2>
+    </div>
+
+    <div class="access__grid">
+
+      <div class="fade-in">
+        <dl class="access__info">
+          <dt>所在地</dt>
+          <dd>〒100-0005<br>東京都千代田区丸の内2-7-2<br>JPタワー12階</dd>
+
+          <dt>最寄り駅</dt>
+          <dd>JR東京駅 丸の内南口 徒歩3分<br>東京メトロ 二重橋前駅 2番出口 徒歩2分</dd>
+
+          <dt>営業時間</dt>
+          <dd>平日 7:00 – 22:00<br>土日祝 8:00 – 18:00</dd>
+
+          <dt>電話</dt>
+          <dd>03-XXXX-XXXX</dd>
+
+          <dt>メール</dt>
+          <dd>info@bizpress-gym.jp</dd>
+        </dl>
+        <div style="margin-top: var(--space-7);">
+          <a href="#cta" class="btn btn--primary btn--lg">無料体験を予約する</a>
+        </div>
+      </div>
+
+      <div class="access__map img-placeholder fade-in fade-in-delay-1">
+        <div class="img-placeholder__label">Google Maps Embed<br>またはスタティック地図画像<br>推奨: 600×450px</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA Section
+     ============================================================ -->
+<section class="cta-section" id="cta">
+  <div class="container container--narrow">
+    <div class="cta-section__inner fade-in">
+
+      <div class="text-overline" style="color:var(--color-accent-light); margin-bottom:var(--space-5);">Free Trial Session</div>
+
+      <h2 class="cta-section__display">
+        Start your<br><em>transformation</em> today.
+      </h2>
+      <p class="cta-section__subtitle">
+        今日、最初の一歩を踏み出しましょう
+      </p>
+
+      <div class="cta-section__form">
+        <input type="text" class="input" placeholder="お名前">
+        <input type="tel" class="input" placeholder="電話番号">
+        <a href="#" class="btn btn--primary btn--lg">無料で予約する</a>
+      </div>
+      <p class="cta-section__note">※ 無料体験は1名様1回限り。担当より24時間以内にご連絡いたします。</p>
+
+      <div style="margin-top: var(--space-8); display:flex; justify-content:center; gap:var(--space-7); flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-display-en);font-size:1.5rem;font-weight:var(--fw-light);color:var(--color-accent-light);">完全無料</div>
+          <div style="font-size:var(--fs-caption);color:var(--color-text-inverse-sub);margin-top:2px;">初回体験</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-display-en);font-size:1.5rem;font-weight:var(--fw-light);color:var(--color-accent-light);">勧誘なし</div>
+          <div style="font-size:var(--fs-caption);color:var(--color-text-inverse-sub);margin-top:2px;">しつこい営業は一切しません</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:var(--font-display-en);font-size:1.5rem;font-weight:var(--fw-light);color:var(--color-accent-light);">当日結果</div>
+          <div style="font-size:var(--fs-caption);color:var(--color-text-inverse-sub);margin-top:2px;">体組成測定データをプレゼント</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     Footer
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand-logo">Biz<span>Press</span></div>
+        <p class="footer__brand-desc">ビジネスパーソンのための加圧トレーニング専門ジム。科学的根拠に基づいた最短・最効率のボディメイクを提供します。</p>
+      </div>
+      <div>
+        <div class="footer__col-title">Menu</div>
+        <ul class="footer__links">
+          <li><a href="#about">加圧とは</a></li>
+          <li><a href="#science">科学的根拠</a></li>
+          <li><a href="#results">実績・事例</a></li>
+          <li><a href="#plans">料金プラン</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Service</div>
+        <ul class="footer__links">
+          <li><a href="#">パーソナルトレーニング</a></li>
+          <li><a href="#">栄養指導</a></li>
+          <li><a href="#">法人プログラム</a></li>
+          <li><a href="#">リハビリ加圧</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Company</div>
+        <ul class="footer__links">
+          <li><a href="#staff">トレーナー紹介</a></li>
+          <li><a href="#facility">施設案内</a></li>
+          <li><a href="#access">アクセス</a></li>
+          <li><a href="#">採用情報</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2024 BizPress Inc. All rights reserved.</span>
+      <div class="footer__policy">
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">特定商取引法</a>
+        <a href="#">利用規約</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JavaScript
+     ============================================================ -->
+<script>
+// Navigation scroll effect
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+// Scroll-triggered fade-in animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -40px 0px'
+});
+
+document.querySelectorAll('.fade-in').forEach(el => {
+  observer.observe(el);
+});
+
+// FAQ Accordion
+document.querySelectorAll('.faq__question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq__item');
+    const answer = item.querySelector('.faq__answer');
+    const isOpen = item.classList.contains('is-open');
+
+    // Close all items
+    document.querySelectorAll('.faq__item.is-open').forEach(openItem => {
+      const openAnswer = openItem.querySelector('.faq__answer');
+      openItem.classList.remove('is-open');
+      openAnswer.style.maxHeight = '0';
+      openItem.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
+    });
+
+    // Open clicked item if it was closed
+    if (!isOpen) {
+      item.classList.add('is-open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+// Smooth anchor scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const navHeight = nav.offsetHeight;
+      const targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+      window.scrollTo({ top: targetPos, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
